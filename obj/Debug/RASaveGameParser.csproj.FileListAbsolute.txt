@@ -1,0 +1,5 @@
+C:\Users\Maikel\Desktop\RASaveGameParser\RASaveGameParser.exe.config
+C:\Users\Maikel\Desktop\RASaveGameParser\obj\Debug\RASaveGameParser.exe
+C:\Users\Maikel\Desktop\RASaveGameParser\obj\Debug\RASaveGameParser.pdb
+C:\Users\Maikel\Desktop\RASaveGameParser\RASaveGameParser.exe
+C:\Users\Maikel\Desktop\RASaveGameParser\RASaveGameParser.pdb
