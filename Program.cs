@@ -29,7 +29,7 @@ namespace RASaveGameParser
                 var SaveGame = new RASaveGame(file.Name);
                 Console.WriteLine("{0,3:D3} | {1,10} | {2,3} | {3, 8} | {4,5} | {5,19} | {6,5} |", SaveGame.Number, SaveGame.Name,
                     SaveGame.ScenarioNumber, SaveGame.Get_Player_House(), SaveGame.Get_Version_String(), 
-                    SaveGame.FileTime, SaveGame.Is_Multiplayer());
+                    SaveGame.Date, SaveGame.Is_Multiplayer());
             }
 
             Console.WriteLine();
@@ -46,7 +46,7 @@ namespace RASaveGameParser
         public int? ScenarioNumber = null;
         public byte? HouseType = null;
         public int? VersionRawID = null;
-        public DateTime? FileTime = null;
+        public DateTime? Date = null;
 
         public RASaveGame(string FilePath)
         {
@@ -59,7 +59,7 @@ namespace RASaveGameParser
                 this.ScenarioNumber = b.ReadInt32();
 
                 this.HouseType = b.ReadByte();
-                this.FileTime = File.GetLastWriteTime(FilePath);
+                this.Date = File.GetLastWriteTime(FilePath);
 
                 this.VersionRawID = b.ReadInt32();
 
