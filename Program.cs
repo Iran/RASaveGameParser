@@ -50,8 +50,7 @@ namespace RASaveGameParser
 
         public RASaveGame(string FilePath)
         {
-            string[] SplitFile = FilePath.Split('.');
-            this.Number = Int32.Parse(SplitFile[SplitFile.Length - 1]);
+            Parse_Save_Game_Number(FilePath);
 
     	    using (BinaryReader b = new BinaryReader(File.Open(FilePath, FileMode.Open)))
 	        {
@@ -75,6 +74,20 @@ namespace RASaveGameParser
                 int RemoveIndex =this.Name.IndexOf(Gibberish);
                 this.Name = this.Name.Remove(RemoveIndex);
 
+        }
+
+        private void Parse_Save_Game_Number(string FilePath)
+        {
+            string[] SplitFile = FilePath.Split('.');
+            string FileExt = SplitFile[SplitFile.Length - 1].ToLowerInvariant();
+            if (FileExt == "net")
+            {
+                this.Number = -1;
+            }
+            else
+            {
+                this.Number = Int32.Parse(FileExt);
+            }
         }
 
         public bool Is_Multiplayer()
